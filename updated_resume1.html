@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Resume Builder</title>
+    <style>
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .resume {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            background-color: #3D7EAA;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-left: 5px solid #3D7EAA;
+        }
+
+        .section h2 {
+            color: #3D7EAA;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .section p {
+            margin: 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+
+        [contenteditable="true"] {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .add-button {
+            background-color: #3D7EAA;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-button:hover {
+            background-color: #2B5D84;
+        }
+        .Btn{
+            background-color: #95ded9;
+            color: #42abed;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .Btn:hover{
+            background-color: #d59fc1;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+        <header>
+            <h1 contenteditable="true" id="name">Your Name</h1>
+        </header>
+        <div class="section">
+            <h2>Summary</h2>
+            <p contenteditable="true" id="summary">A brief summary of your qualifications and career goals.</p>
+        </div>
+        <div class="section">
+            <h2>Experience</h2>
+            <ul contenteditable="true" id="experience">
+                <li><strong>Job Title</strong> - Company Name - Date</li>
+                <li>Job description and accomplishments.</li>
+            </ul>
+            <button class="add-button" onclick="addExperience()">Add Experience</button>
+        </div>
+        <div class="section">
+            <h2>Projects</h2>
+            <ul contenteditable="true" id="projects">
+                <li><strong>Project Title</strong> - Date</li>
+                <li>Project description and achievements.</li>
+            </ul>
+            <button class="add-button" onclick="addProjects()">Add Project</button>
+        </div>
+        <div class="section">
+            <h2>Achievements</h2>
+            <ul contenteditable="true" id="achievements">
+                <li><strong>Achievement Title</strong> - Date</li>
+                <li>Details of the achievement.</li>
+            </ul>
+            <button class="add-button" onclick="addAchievements()">Add Achievement</button>
+        </div>
+        <div>
+            <button class="Btn" onclick="window.print()">Download</button>
+        </div>
+    </div>
+
+    <script>
+        function addExperience() {
+            const experienceList = document.getElementById('experience');
+            const newItem = document.createElement('li');
+            newItem.innerHTML = '<strong>Job Title</strong> - Company Name - Date<br>Job description and accomplishments.';
+            experienceList.appendChild(newItem);
+        }
+
+        function addProjects() {
+            const projectsList = document.getElementById('projects');
+            const newItem = document.createElement('li');
+            newItem.innerHTML = '<strong>Project Title</strong> - Date<br>Project description and achievements.';
+            projectsList.appendChild(newItem);
+        }
+
+        function addAchievements() {
+            const achievementsList = document.getElementById('achievements');
+            const newItem = document.createElement('li');
+            newItem.innerHTML = '<strong>Achievement Title</strong> - Date<br>Details of the achievement.';
+            achievementsList.appendChild(newItem);
+        }
+    </script>
+</body>
+</html>
+
